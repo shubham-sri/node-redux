@@ -59,6 +59,6 @@ redux.store.dispatch({type = 'counter/decremented'})
 
 ## License
 
-[GNU GENERAL PUBLIC LICENSE](LICENSE)
+[MIT](LICENSE)
 
 
