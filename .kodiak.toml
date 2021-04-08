@@ -1,0 +1,22 @@
+# .kodiak.toml
+
+version = 1
+
+[merge]
+automerge_label = ["🚢 it!", "merge it!", "🚀 merge it!"]
+
+require_automerge_label = true
+
+blocking_title_regex = ".*DONT\s*MERGE.*"
+
+blocking_labels = ["wip"]
+
+method = "squash"
+
+delete_branch_on_merge = true
+
+[merge.message]
+
+title = "pull_request_title"
+
+body = "pull_request_body"
