@@ -104,7 +104,8 @@ do
                 end
 
                 if (type(action.type) == 'nil') then
-                    error('Actions may not have an undefined "type" property. You may have misspelled an action type string constant.')
+                    error('Actions may not have an undefined "type" property. ' ..
+                            'You may have misspelled an action type string constant.', 2)
                 end
 
                 if(isDispatching) then
