@@ -7,7 +7,7 @@ automerge_label = ["🚢 it!", "merge it!", "🚀 merge it!"]
 
 require_automerge_label = true
 
-blocking_title_regex = ".*DONT\s*MERGE.*"
+blocking_title_regex = ".*DONT*MERGE.*"
 
 blocking_labels = ["wip"]
 
