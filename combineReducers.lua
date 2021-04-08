@@ -1,3 +1,5 @@
+local require, type, error, pairs, table, tostring = require, type, error, pairs, table, tostring
+
 local ActionTypes = require('actionType_utils')
 local isPlainObject = require('isPlainObject_utils')
 

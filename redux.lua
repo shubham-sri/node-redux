@@ -1,5 +1,8 @@
+local require, type, error, ipairs, table, select = require, type, error, ipairs, table, select
+
 local isPlainObject = require('isPlainObject_utils')
 local ActionTypes = require('actionType_utils')
+local combineReducers = require('combineReducers')
 
 local redux, store
 do
@@ -8,7 +11,7 @@ do
             error("Expected the root reducer to be a function. Instead, received: "..type(reducer), 2)
         end
 
-        arg_4 = select(1, ...)
+        local arg_4 = select(1, ...)
 
         if((type(preloadedState) == 'function' and type(enhancer) == 'function')
                 or (type(enhancer) == 'function' and type(arg_4) == 'function') ) then
@@ -43,7 +46,7 @@ do
                 if type(array) ~= 'table' then return array end
                 local res = {}
                 local index = 0
-                for k, v in ipairs(array) do
+                for _, v in ipairs(array) do
                     res[index] = v
                     index = index + 1
                 end
@@ -113,7 +116,7 @@ do
                 isDispatching = false
                 currentListeners = nextListeners
                 local listeners = currentListeners
-                for k, listener in ipairs(listeners) do
+                for _, listener in ipairs(listeners) do
                     listener(previousState, currentState)
                 end
                 return action
@@ -143,6 +146,7 @@ do
 
     redux = {
         createStore = createStore,
+        combineReducers = combineReducers,
     }
 end
 
