@@ -7,7 +7,7 @@ local isPlainObject = require('isPlainObject_utils')
 local function _getKeys(object)
     local keyset={}
     local n = 0
-    for k, v in pairs(object) do
+    for k, _ in pairs(object) do
         n = n + 1
         keyset[n] = k
     end
@@ -16,7 +16,7 @@ end
 
 local function _getKeysString(object)
     local keys = ''
-    for k, v in pairs(object) do
+    for k, _ in pairs(object) do
         keys = tostring(k) .. ', ' .. keys
     end
     return string.sub(keys, 1, -3)
@@ -42,13 +42,13 @@ local function getUnexpectedStateShapeWarningMessage(inputState, reducers, actio
     end
 
     local unexpectedKeys = {}
-    for k, v in pairs(inputState) do
+    for k, _ in pairs(inputState) do
         if(reducers[k] == nil and not unexpectedKeyCache[k]) then
             table.insert(unexpectedKeys, k)
         end
     end
 
-    for k, v in pairs(unexpectedKeys) do
+    for _, v in pairs(unexpectedKeys) do
         unexpectedKeyCache[v] = true
     end
 
@@ -100,7 +100,7 @@ local function combineReducers(reducers)
     local reducerKeys = _getKeys(reducers)
     local finalReducers = {}
 
-    for k, v in pairs(reducerKeys) do
+    for _, v in pairs(reducerKeys) do
         if (type(reducers[v]) == 'function' ) then
             finalReducers[v] = reducers[v]
         end
@@ -139,7 +139,7 @@ local function combineReducers(reducers)
         local nextState = {}
 
 
-        for k, v in pairs(finalReducerKeys) do
+        for _, v in pairs(finalReducerKeys) do
             local key = v
             local reducer = finalReducers[key]
             local previousStateForKey = state[key]

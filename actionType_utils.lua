@@ -8,7 +8,7 @@ do
 
     local function randomeSting(length)
         local output = ""
-        for	i = 1, length do
+        for	_ = 1, length do
             output = math.random(#characterSet) .. output
         end
         return output

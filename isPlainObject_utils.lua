@@ -1,6 +1,8 @@
-function _checkObect(obj)
+local pairs, type = pairs, type
+
+local function _checkObect(obj)
     local check = true
-    for k, v in pairs(obj) do
+    for _, v in pairs(obj) do
         local obType = type(v)
         if (obType == 'string' or obType == 'number' or obType == 'nil' or obType == 'boolean') then
             check = check and true
