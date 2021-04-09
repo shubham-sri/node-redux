@@ -1,5 +1,5 @@
 # NodeRedux 
-Redux is a predictable state container for lua apps and NodeMCU.
+Redux is a predictable state container, we use this for ESP devices.
 
 ## Influences
 
